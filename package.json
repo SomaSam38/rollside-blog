@@ -1,0 +1,1 @@
+{"name":"rollside-blog-content","private":true,"type":"module","engines":{"node":">=22"},"scripts":{"test":"node scripts/publish.mjs --check","build":"node scripts/publish.mjs"}}

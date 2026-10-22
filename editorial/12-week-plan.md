@@ -109,7 +109,7 @@ Evidence types used in the source lists below: *Rollside page, read directly*; *
 **Outline**
 
 1. Find your pattern: record two minutes unscripted and mark where the fillers cluster
-2. Plan the joins: write out openings and transitions, leave the middle in bullets
+2. Plan the joins: write out openings and transitions, leave the middle in bullets, and scroll bullet sections manually or on a slow timed speed
 3. Swap the filler for a pause and practise the silence
 4. Slow the start, and decide which fillers can stay or be cut in the edit
 
@@ -119,11 +119,12 @@ Evidence types used in the source lists below: *Rollside page, read directly*; *
 
 **Writing and format.** Use an annotated transcript as the centrepiece. Avoid the cliché that fillers 'destroy credibility'. If citing advice that a speech-language therapist may help for non-habit causes, keep it brief and non-diagnostic.
 
-**Product CTA.** Light: a script with written transitions and bullet points can sit in Prompter; Voice follow pauses when you stop speaking, which makes a deliberate silence easier to practise. Recheck requirements.
+**Product CTA.** Light: a script with written transitions and bullet notes can sit in Prompter. For bullet notes you talk around, recommend timed scrolling at a slow speed or moving the script by hand; do not suggest Voice follow will track improvised speech from sparse bullets. Voice follow may be mentioned only for passages the reader actually reads word for word, and only as current support docs describe it.
 
 **Recheck before writing**
 
-- Voice follow pause behaviour and requirements (iOS 18+, supported device, on-device language)
+- Voice follow behaviour, pause handling and requirements (iOS 18+, supported device, on-device language) on /support/prompter/
+- Whether current docs say anything about off-script speech; if not, say nothing beyond swipe to recover
 - Prompter shows text only; does not record
 
 **Keyword rationale and sources** (qualitative hypothesis; no volume or ranking data)
@@ -239,10 +240,11 @@ Evidence types used in the source lists below: *Rollside page, read directly*; *
 
 **Writing and format.** Structure as a comparison with a short decision list near the top, then examples. Avoid presenting either side as universally right.
 
-**Product CTA.** Light: Prompter displays whatever you write, including bullet notes; keep a small number of lines in focus so a note is easy to find at a glance.
+**Product CTA.** Light: Prompter displays whatever you write, including bullet notes; keep a small number of lines in focus so a note is easy to find at a glance. For bullet-led sections, suggest timed scrolling at a slow speed or moving the script by hand rather than Voice follow, which is for wording you actually read.
 
 **Recheck before writing**
 
+- Timed scrolling and manual movement wording on /support/prompter/
 - Reading focus of one, two or three lines
 - Prompter free tier limits (three saved scripts)
 
@@ -345,21 +347,21 @@ Evidence types used in the source lists below: *Rollside page, read directly*; *
 - **Pillar:** Accessibility and captions
 - **Search intent and reader question:** How-to. Reader question: I already have a script. How do I turn it into accurate captions, and what does a script miss?
 
-**Angle and difference.** A scripted creator's head start on captions, with the honest catch: the final caption must match what was actually said, plus speaker and sound information where it matters. Covers reconciling ad-libs and editing cuts. No existing post covers captions.
+**Angle and difference.** A scripted creator's head start on captions, with the honest catch: the final caption must match what was actually said, plus speaker identification and meaningful non-speech audio. Covers reconciling ad-libs and editing cuts, and explains that information shown only on screen is not automatically caption content: important visuals may need to be said aloud or given in a descriptive transcript. No existing post covers captions.
 
 **Outline**
 
 1. Why your script is a head start, not the finished caption
 2. Update the script to match the final edit
-3. Add what the script leaves out: speakers, meaningful sounds, on-screen text
+3. Add what the script leaves out: speaker identification and meaningful non-speech audio
 4. Sync, then check names, numbers and line breaks
-5. Captions vs subtitles in plain terms
+5. Captions vs subtitles, and where visual-only information goes instead (spoken description or a descriptive transcript)
 
 **Worked example brief.** Hypothetical 40-second script about storing winter bedding, with a marked difference between the script and the final edit (one ad-libbed line, one cut sentence) and the corrected caption text. Labelled as invented; no accuracy percentages unless sourced from a read page.
 
 **Internal links.** [/blog/how-to-write-a-teleprompter-script/](https://rollside.studio/blog/how-to-write-a-teleprompter-script/), [/blog/talking-head-video-setup/](https://rollside.studio/blog/talking-head-video-setup/)
 
-**Writing and format.** Use a before/after block for the script vs the corrected caption text. Ground the captions vs subtitles and non-speech points in the W3C page, and the upload and auto-sync options in YouTube Help; both need rechecking on the day. Do not quote auto-caption accuracy percentages: none came from a read source.
+**Writing and format.** Use a before/after block for the script vs the corrected caption text. Keep captions to speech, speaker identification and meaningful non-speech audio. Do not tell readers to copy all on-screen text into captions. Ground the captions vs subtitles and non-speech points in the W3C page, and the upload and auto-sync options in YouTube Help; both need rechecking on the day. Do not quote auto-caption accuracy percentages: none came from a read source.
 
 **Product CTA.** Optional and careful: Share script in Prompter sends script text through the share sheet, which can be a starting point for captions. Mention Rollside for Mac editable captions only if it has been released; otherwise omit or say 'in preparation'.
 
@@ -369,12 +371,13 @@ Evidence types used in the source lists below: *Rollside page, read directly*; *
 - Mac release status and captions features on /mac/ and /support/mac/
 - YouTube upload and auto-sync options against the current YouTube Help page and Studio UI
 - Any formal accessibility requirement (e.g. WCAG level) against current W3C text before stating it
+- Read W3C guidance on description and transcripts (WAI media pages) before advising on visual-only information; not read for this plan
 
 **Keyword rationale and sources** (qualitative hypothesis; no volume or ranking data)
 
 - [UAF CTL: read from a script to make videos accessible](https://ctl.uaf.edu/?p=3303): search snippet only, page not opened. Snippet describes pasting a script into YouTube's transcribe and auto-sync. Its auto-caption accuracy figure is unverified and must not be quoted unread. Query: "use your script to make accurate captions subtitles video accessibility".
 - [UConn accessibility: YouTube captions](https://accessibility.its.uconn.edu/youtube): search snippet only, page not opened. Snippet says auto captions need revision. Query: "use your script to make accurate captions subtitles video accessibility".
-- [UIS: accessible videos](https://www.uis.edu/resource/accessibility/accessible-videos): search snippet only, page not opened. Snippet distinguishes captions from subtitles and mentions non-speech information. Query: "use your script to make accurate captions subtitles video accessibility".
+- [UIS: accessible videos](https://www.uis.edu/resource/accessibility/accessible-videos): search snippet only, page not opened. Snippet distinguishes captions from subtitles and mentions non-speech audio information. Query: "use your script to make accurate captions subtitles video accessibility".
 - [W3C WAI: Captions/Subtitles](https://www.w3.org/WAI/media/av/captions/): primary source, read by the parent session (summary supplied). Read by the parent session, not this one. Captions are synchronised text covering speech and meaningful non-speech audio, for Deaf and hard-of-hearing viewers and others; distinguishes same-language captions from translated subtitles; transcripts and captions can be developed from each other. Supports the workflow topic; not keyword-volume evidence.
 - [YouTube Help: add subtitles and captions](https://support.google.com/youtube/answer/2734796): primary source, read by the parent session (summary supplied). Read by the parent session, not this one. Documents uploading a subtitle file with or without timing, transcript auto-sync in a supported language matching the spoken video, and manual entry including relevant non-speech sound. Authors must match the delivered recording and recheck the YouTube UI at publication.
 - [Rollside Prompter guide](https://rollside.studio/support/prompter/): Rollside page, read directly. Setup steps, Voice follow requirements, Back a sentence, remote testing, Share script and library restore.
@@ -390,15 +393,15 @@ Evidence types used in the source lists below: *Rollside page, read directly*; *
 - **Pillar:** Delivery and rehearsal
 - **Search intent and reader question:** Problem-solving. Reader question: I sound flat when I watch my videos back. What can I change in my voice and my script?
 
-**Angle and difference.** Focused voice work for camera: choose one stressed word per thought, reset pitch at each new idea, vary pace on purpose, and check whether the mic or room is flattening you. Includes a simple mark-up system for a script. Differs from the reading-naturally post, which gives a short expression section among setup advice, and from the um post.
+**Angle and difference.** Focused voice work for camera: choose one stressed word per thought, reset pitch at each new idea, vary pace on purpose. Includes a simple mark-up system for a script. Separately covers dull or muffled recorded sound, which is an audio-quality problem: better mic placement or a quieter, less echoey room can make the recording clearer, but it does not add pitch variation to a flat delivery. Differs from the reading-naturally post, which gives a short expression section among setup advice, and from the um post.
 
 **Outline**
 
-1. Flat delivery has a few causes: reading, nerves, tiredness, audio
+1. Two different problems: a flat delivery and a dull-sounding recording
 2. Pick the word that matters in each line
 3. Change pace and pitch at the joins between ideas
 4. Mark up a paragraph, then record and compare
-5. When it is the microphone, not you
+5. If the recording sounds muffled: mic distance and room, which fix clarity, not expression
 
 **Worked example brief.** Hypothetical paragraph from a video about winter running kit, shown plain and then marked up with stress, pause and 'lift' notes. Describe what the reader should listen for in their own playback; no claims about audience response.
 
@@ -406,17 +409,18 @@ Evidence types used in the source lists below: *Rollside page, read directly*; *
 
 **Writing and format.** Short paragraphs, one marked-up example as a fenced text block, a little humour allowed. Avoid vocal exercises presented as medical advice.
 
-**Product CTA.** Light: cue marks and reading focus in Prompter can hold your stress marks so they are visible while you read. Recheck terminology.
+**Product CTA.** Light: type ordinary notes into the Prompter script, such as [pause], [slower] or a stressed word in capitals, and rehearse with them. Do not present cue marks as stress or pitch markers. Mention a reader setting only if current docs confirm what it does.
 
 **Recheck before writing**
 
-- Cue marks and word emphasis features on /prompter/ and /support/prompter/
+- What reading focus, cue marks and optional word emphasis actually do, on /prompter/ and /support/prompter/, before naming any of them
+- Do not imply a microphone changes pitch variation
 
 **Keyword rationale and sources** (qualitative hypothesis; no volume or ranking data)
 
 - [Teleprompter.com: voice modulation](https://www.teleprompter.com/blog/how-to-use-voice-modulation): search snippet only, page not opened. Competing guide on vocal variety for prompter users. Query: "how to sound less monotone on camera vocal variety".
 - [vidIQ: speaking on camera](https://vidiq.com/es/blog/post/youtube-skills-speaking-on-camera/): search snippet only, page not opened. Creator-tool site targets speaking on camera. Query: "how to sound less monotone on camera vocal variety".
-- [Brandlive: voice on video](https://www.brandlive.com/?p=64220): search snippet only, page not opened. Snippet notes built-in mics can make voice worse; supports the audio cause section. Query: "how to sound less monotone on camera vocal variety".
+- [Brandlive: voice on video](https://www.brandlive.com/?p=64220): search snippet only, page not opened. Snippet notes built-in mics pick up more room noise; relevant only to the recorded-clarity section, not to vocal expression. Query: "how to sound less monotone on camera vocal variety".
 - [Rollside Prompter guide](https://rollside.studio/support/prompter/): Rollside page, read directly. Setup steps, Voice follow requirements, Back a sentence, remote testing, Share script and library restore.
 
 ### Week 10: Mon, 28 Dec 2026
@@ -468,17 +472,17 @@ Evidence types used in the source lists below: *Rollside page, read directly*; *
 - **Pillar:** Product education
 - **Search intent and reader question:** Commercial-informational comparison. Reader question: how does a teleprompter that follows my voice work, and when is fixed-speed scrolling better?
 
-**Angle and difference.** Explains the trade-offs of voice-following versus timed scrolling in general terms, then shows how Prompter's Voice follow behaves (pauses when you stop, Back a sentence, swipe to recover) and its real requirements. Honest about when timed scrolling is the better choice. Differs from the remote post (hardware control) and the reading-naturally post (eyeline and expression).
+**Angle and difference.** Explains the trade-offs of voice-following versus timed scrolling in general terms, then shows how Prompter's Voice follow behaves (pauses when you stop, Back a sentence, swipe to recover) and its real requirements. Honest about when timed scrolling is the better choice, including heavily improvised or bullet-led videos. Treats off-script speech as a limitation to test and recover from, not a benefit. Differs from the remote post (hardware control) and the reading-naturally post (eyeline and expression).
 
 **Outline**
 
 1. Timed scrolling and voice following, in plain terms
-2. When following your voice helps: pauses, uneven pace, ad-libs
+2. When following your voice helps: pauses and uneven pace while reading the written words
 3. When timed scrolling is the better choice
 4. Requirements and privacy questions to check
-5. Recovering when the prompter loses your place
+5. Going off script: a matching and recovery limitation to test (Back a sentence, swipe to the words you are reading)
 
-**Worked example brief.** Hypothetical: a recipe video script with a deliberate pause while stirring, rehearsed once in each mode. Describe what the creator should watch for in each case. Do not claim accuracy or measured results.
+**Worked example brief.** Hypothetical: a recipe video script with a deliberate pause while stirring, rehearsed once in each mode. Include one short unscripted aside as a test of how each mode recovers. Describe what the creator should watch for in each case. Do not claim accuracy or measured results.
 
 **Internal links.** [/blog/how-to-read-a-teleprompter-naturally/](https://rollside.studio/blog/how-to-read-a-teleprompter-naturally/), [/blog/how-many-words-for-a-60-second-script/](https://rollside.studio/blog/how-many-words-for-a-60-second-script/)
 
@@ -490,6 +494,7 @@ Evidence types used in the source lists below: *Rollside page, read directly*; *
 
 - Voice follow requirements, permissions and privacy statements on /support/prompter/
 - Current Prompter version and any Voice follow changes since 1.2.2
+- Do not claim Voice follow holds or regains your place after improvising unless current docs say so
 
 **Keyword rationale and sources** (qualitative hypothesis; no volume or ranking data)
 

@@ -67,6 +67,8 @@ export function parseArticle(source, slug) {
   if (meta.title.length > 180 || meta.meta_title.length > 60 || meta.meta_description.length > 160 || meta.excerpt.length > 500) throw new Error('Invalid metadata lengths');
   if (new Date(meta.date + 'T00:00:00Z').toISOString().slice(0,10) !== meta.date) throw new Error('Invalid article date');
   if (!meta.primary_keyword || meta.primary_keyword.length > 150) throw new Error('Missing primary keyword');
+  if (meta.modified && (!/^\d{4}-\d{2}-\d{2}$/.test(meta.modified) || new Date(meta.modified+'T00:00:00Z').toISOString().slice(0,10)!==meta.modified)) throw new Error('Invalid modified date');
+  if ((parts[2].match(/^# /gm)||[]).length !== 1) throw new Error('Expected exactly one article heading');
   const body = convert(parts[2]);
   if (body.title !== meta.title) throw new Error('Heading does not match title: ' + slug);
   const words = parts[2].replace(/[#>*`\-[\]()]/g, ' ').split(/\s+/).filter(Boolean).length;
@@ -80,7 +82,7 @@ const card = (post, heading) => `<article class="post-card"><p class="post-meta"
 // Returns the page between the shared header and footer.
 export function blogMain(page, breadcrumbs, blogPosts) {
   if (page.blog === 'index') return `<main id="main" class="wrap document blog-index"><nav class="breadcrumbs" aria-label="Breadcrumb">${breadcrumbs}</nav><header class="document-heading"><p class="eyebrow"><span class="dot"></span>Rollside blog</p><h1>Notes for<br>your next take.</h1><p class="document-intro">Practical guides to writing a script, reading from a teleprompter and setting up to film yourself.</p></header><ol class="post-list">${blogPosts.map(post => `<li>${card(post, 'h2')}</li>`).join('')}</ol><p class="blog-support">Looking for help with a Rollside app? <a class="link" href="/support/">Visit Support →</a></p></main>`;
-  const post = page.post, related = blogPosts.filter(p => p !== post);
+  const post = page.post, related = blogPosts.filter(p => p !== post).slice(0,2);
   const toc = post.sections.map(s => `<a href="#${s.id}">${esc(s.heading)}</a>`).join('');
   const sections = post.sections.map(s => `<section id="${s.id}"><h2>${esc(s.heading)}</h2>${s.blocks.join('')}</section>`).join('');
   return `<main id="main" class="wrap document blog-article"><nav class="breadcrumbs" aria-label="Breadcrumb">${breadcrumbs}</nav><article class="blog-post"><header class="document-heading"><p class="eyebrow"><span class="dot"></span><a href="/blog/">Rollside blog</a></p><h1>${esc(post.title)}</h1><p class="article-byline">By Rollside<span aria-hidden="true">·</span>Published ${meta(post)}</p></header><div class="document-layout"><div class="document-body article-body"><div class="article-lead">${post.lead}</div>${sections}</div><aside class="document-toc" aria-label="On this page"><p>ON THIS PAGE</p>${toc}<a href="/blog/">All articles →</a></aside></div></article><section class="related-posts" aria-labelledby="related-heading"><h2 id="related-heading">Keep reading</h2><div class="post-list">${related.map(p => card(p, 'h3')).join('')}</div></section></main>`;

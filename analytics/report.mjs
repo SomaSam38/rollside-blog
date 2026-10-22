@@ -4,6 +4,25 @@ export const scope = 'https://www.googleapis.com/auth/webmasters.readonly';
 const blogFilter = { dimension: 'page', operator: 'includingRegex', expression: '^https://rollside\\.studio/blog/' };
 const day = 86400000;
 const iso = ms => new Date(ms).toISOString().slice(0, 10);
+export function batchRequest(url, data) {
+  const expected = /^https:\/\/www\.googleapis\.com\/webmasters\/v3\/sites\/(https%3A%2F%2Frollside\.studio%2F|sc-domain%3Arollside\.studio)\/searchAnalytics\/query$/;
+  if (!expected.test(url)) throw new Error('Unexpected Search Console read endpoint.');
+  const boundary = 'rollside_gsc_read';
+  return { url: 'https://searchconsole.googleapis.com/batch', headers: { 'Content-Type': `multipart/mixed; boundary=${boundary}` }, body: `--${boundary}\r\nContent-Type: application/http\r\nContent-ID: <rollside-read>\r\n\r\nPOST ${new URL(url).pathname} HTTP/1.1\r\nContent-Type: application/json\r\n\r\n${JSON.stringify(data)}\r\n--${boundary}--\r\n` };
+}
+export function batchResponse(raw, contentType) {
+  const boundary = /boundary="?([^";\s]+)"?/i.exec(contentType || '')?.[1];
+  if (!boundary || raw.length > 8 * 1024 * 1024) throw new Error('Invalid batch response.');
+  const parts = raw.split('--' + boundary).slice(1, -1);
+  if (parts.length !== 1) throw new Error('Unexpected batch response count.');
+  const part = parts[0];
+  const response = part.slice(part.indexOf('HTTP/1.1 '));
+  const status = Number(/^HTTP\/1\.1 (\d{3}) /.exec(response)?.[1]);
+  if (!status) throw new Error('Invalid batch status.');
+  if (status !== 200) { const error = new Error('Google API request failed'); error.response = { status }; throw error; }
+  const body = response.slice(response.indexOf('\r\n\r\n') + 4).trim();
+  return { data: JSON.parse(body) };
+}
 export function windows(now = new Date()) {
   const pt = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
   const end = Date.parse(pt + 'T00:00:00Z') - 3 * day;
@@ -32,9 +51,12 @@ async function main() {
   const request = async ({ url, data, timeout }) => {
     // Claude's cloud proxy attaches a short-lived Google token after the request
     // leaves the VM. No credential or Authorization header is present here.
-    const response = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data), redirect: 'error', signal: AbortSignal.timeout(timeout) });
+    // Google's documented batch endpoint preserves the URL-prefix property in
+    // the nested request, avoiding encoded path separators in the proxy route.
+    const batch = batchRequest(url, data);
+    const response = await fetch(batch.url, { method: 'POST', headers: batch.headers, body: batch.body, redirect: 'error', signal: AbortSignal.timeout(timeout) });
     if (!response.ok) { const error = new Error('Google API request failed'); error.response = { status: response.status }; throw error; }
-    return { data: await response.json() };
+    return batchResponse(await response.text(), response.headers.get('content-type'));
   };
   const output = await report({ request, property: process.env.GSC_PROPERTY || 'https://rollside.studio/' });
   console.log(JSON.stringify(output, null, 2));

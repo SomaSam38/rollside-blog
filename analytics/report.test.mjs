@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { windows, report } from './report.mjs';
+import { windows, report, batchRequest, batchResponse } from './report.mjs';
 test('uses non-overlapping 28-day windows in Google reporting timezone, excluding recent days', () => {
   assert.deepEqual(windows(new Date('2026-10-22T00:30:00Z')), [{ startDate: '2026-09-21', endDate: '2026-10-18' }, { startDate: '2026-08-24', endDate: '2026-09-20' }]);
 });
@@ -24,4 +24,17 @@ test('zero rows are insufficient data, not an invented performance measurement',
 test('rejects other properties and malformed API metrics', async () => {
   await assert.rejects(report({ property: 'sc-domain:soma-meditation.com' }), /Only the Rollside/);
   await assert.rejects(report({ request: async () => ({ data: { rows: [{ clicks: 'secret' }] } }) }), /Invalid/);
+});
+test('uses the official batch endpoint with only a Rollside Search Analytics read', () => {
+  const batch = batchRequest('https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Frollside.studio%2F/searchAnalytics/query', { rowLimit: 1 });
+  assert.equal(batch.url, 'https://searchconsole.googleapis.com/batch');
+  assert.match(batch.body, /POST \/webmasters\/v3\/sites\/https%3A%2F%2Frollside.studio%2F\/searchAnalytics\/query HTTP\/1.1/);
+  assert.doesNotMatch(batch.body, /Authorization|Bearer/);
+  assert.throws(() => batchRequest('https://example.com/', {}));
+});
+test('checks nested HTTP status instead of mistaking outer HTTP 200 for success', () => {
+  const fixture = status => `--reply\r\nContent-Type: application/http\r\n\r\nHTTP/1.1 ${status} Response\r\nContent-Type: application/json\r\n\r\n{}\r\n--reply--\r\n`;
+  assert.deepEqual(batchResponse(fixture(200), 'multipart/mixed; boundary=reply'), { data: {} });
+  assert.throws(() => batchResponse(fixture(403), 'multipart/mixed; boundary=reply'), error => error.response.status === 403);
+  assert.throws(() => batchResponse('{}', 'application/json'));
 });

@@ -2,6 +2,8 @@
 
 Public article content for https://rollside.studio/blog/. This repository intentionally contains no application code, payment configuration, credentials or private project evidence.
 
+Optional direct Google Search Console reporting is documented in [analytics/README.md](analytics/README.md). It runs in Claude's cloud, keeps credentials in the cloud proxy, and never commits reports. It remains unavailable until the owner verifies Rollside and grants restricted property access.
+
 Claude's cloud scheduled task adds one original article a week, runs `npm test` and `npm run build`, then commits the article and generated `feed.json` to `main`. The Rollside website reads this public feed; no Mac, local Claude process or local disk is involved in publication.
 
 The three initial posts are preserved from 22 October 2026. Future articles live in `articles/<slug>.md`. All frontmatter values must be quoted JSON strings. Required fields: title, slug, date (YYYY-MM-DD), primary_keyword, meta_title (max 60 characters), meta_description (max 160), excerpt. The H1 must equal the title. Markdown supports H2 sections, paragraphs, bold, links, flat lists, block quotes and fenced code examples. HTML is escaped.

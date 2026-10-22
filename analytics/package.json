@@ -1,0 +1,1 @@
+{"name":"rollside-search-console","private":true,"type":"module","engines":{"node":">=22"},"scripts":{"report":"node report.mjs","test":"node --test report.test.mjs"}}

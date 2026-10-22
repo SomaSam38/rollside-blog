@@ -5,12 +5,12 @@ date: "2026-10-22"
 primary_keyword: "how many words for a 60 second script"
 meta_title: "How Many Words for a 60 Second Script?"
 meta_description: "How many words for a 60 second script depends on your speaking pace. Measure it in two minutes, then plan, trim and rehearse to a real time limit."
-excerpt: "The usual answer is around 150 words, but your own pace matters more than the rule of thumb. Here is how to measure it, plan a script to length and trim it without losing the point."
+excerpt: "Around 150 words is a common starting estimate, but your own pace matters more. Here is how to measure it, plan a script to length and trim it without losing the point."
 ---
 
 # How many words for a 60 second script? Time it to your own pace
 
-Ask how many words fit in a 60 second script and you will usually hear "about 150". That figure comes from a commonly quoted speaking rate of roughly 130 to 160 words per minute. It is a fair starting point. It is also an average, and averages are not much help when you are the one talking.
+Ask how many words fit in a 60 second script and you will often see "about 150" suggested. Treat that as a rough starting estimate, not a rule. It assumes one steady speaking pace, and the pace that matters is yours.
 
 Some people speak quickly and clip their pauses. Others slow down for anything technical, or when reading from a prompter for the first time. A script that fits a minute for one creator can run well over for another. So the better question is: how many words do you say in a minute, with this kind of script?
 
@@ -67,7 +67,7 @@ The rest of the trim tends to come from the same few places:
 - **Explanations the camera can show.** If viewers will see you wipe the pan dry, you do not need to describe the towel.
 - **A long sign-off.** In a minute-long video, one clear next step is plenty.
 
-After those edits, the example script lands at 128 words. At 140 words per minute that is about 55 seconds of speech, which leaves a few seconds for pauses. A timed read will tell you whether it really fits.
+If your revised draft is 128 words, at 140 words per minute that is about 55 seconds of speech, which leaves a few seconds for pauses. A timed read will tell you whether it really fits.
 
 ## Check the time by reading aloud, not by counting
 
